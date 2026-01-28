@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مساعد الذكاء الاصطناعي المحلي</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="manifest" href="manifest.json">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🤖 مساعدك الذكي المحلي</h1>
+            <p class="subtitle">ذكاء اصطناعي يعمل بالكامل على جهازك - خصوصية تامة</p>
+            <div class="status-bar">
+                <span id="onlineStatus" class="status online">🟢 متصل</span>
+                <span id="aiStatus" class="status">⏳ جاري التحميل...</span>
+                <span id="storageStatus" class="status">💾 0 عنصر محفوظ</span>
+            </div>
+        </header>
+
+        <main>
+            <div class="search-section">
+                <div class="input-group">
+                    <input 
+                        type="text" 
+                        id="queryInput" 
+                        placeholder="اسأل أي سؤال... (مثال: ما هو الذكاء الاصطناعي؟)"
+                        autocomplete="off"
+                    >
+                    <button id="searchBtn" class="btn-primary">
+                        🔍 بحث
+                    </button>
+                </div>
+                <div class="options">
+                    <label>
+                        <input type="checkbox" id="onlineSearch" checked>
+                        البحث على الإنترنت (إن توفر)
+                    </label>
+                    <label>
+                        <input type="checkbox" id="useSummarization" checked>
+                        تلخيص النتائج بالذكاء الاصطناعي
+                    </label>
+                </div>
+            </div>
+
+            <div id="loadingIndicator" class="loading hidden">
+                <div class="spinner"></div>
+                <p id="loadingText">جاري المعالجة...</p>
+            </div>
+
+            <div id="resultsSection" class="results-section hidden">
+                <h2>📊 النتائج</h2>
+                
+                <div id="answerBox" class="answer-box hidden">
+                    <h3>✨ الإجابة الذكية</h3>
+                    <div id="aiAnswer"></div>
+                </div>
+
+                <div id="sourcesBox" class="sources-box hidden">
+                    <h3>📚 المصادر</h3>
+                    <div id="sourcesList"></div>
+                </div>
+
+                <div id="cachedBox" class="cached-box hidden">
+                    <h3>💾 من الذاكرة المحلية</h3>
+                    <div id="cachedResults"></div>
+                </div>
+            </div>
+
+            <div class="info-section">
+                <details>
+                    <summary>ℹ️ كيف يعمل النظام؟</summary>
+                    <ul>
+                        <li>🔒 جميع البيانات مخزنة على جهازك فقط</li>
+                        <li>🧠 نموذج AI يعمل داخل المتصفح بدون إرسال بيانات</li>
+                        <li>🌐 يجلب المعلومات من مصادر مفتوحة (Wikipedia, RSS)</li>
+                        <li>💾 يحفظ المعرفة محليًا للاستخدام الأوفلاين</li>
+                        <li>⚡ يعمل بدون إنترنت باستخدام البيانات المحفوظة</li>
+                    </ul>
+                </details>
+                
+                <details>
+                    <summary>🗑️ إدارة البيانات</summary>
+                    <div class="data-management">
+                        <button id="clearCacheBtn" class="btn-secondary">مسح الذاكرة</button>
+                        <button id="exportDataBtn" class="btn-secondary">تصدير البيانات</button>
+                        <button id="viewStatsBtn" class="btn-secondary">عرض الإحصائيات</button>
+                    </div>
+                </details>
+            </div>
+        </main>
+
+        <footer>
+            <p>🔐 جميع البيانات محلية - لا يتم إرسال أي معلومات خارج جهازك</p>
+        </footer>
+    </div>
+
+    <script src="db.js"></script>
+    <script src="fetcher.js"></script>
+    <script src="processor.js"></script>
+    <script src="ai-engine.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
